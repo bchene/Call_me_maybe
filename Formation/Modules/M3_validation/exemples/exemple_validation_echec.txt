@@ -1,0 +1,18 @@
+Validation échouée:
+
+Input JSON:
+{
+    "prompt": "Quelle est la somme de 2 et 3 ?",
+    "fn_name": "fn_add_numbers",
+    "args": {
+        "a": 2.0
+    }
+}
+
+Erreurs détectées:
+✗ Argument 'b' manquant
+
+Message d'erreur: "Argument 'b' manquant"
+
+Résultat: INVALIDE
+

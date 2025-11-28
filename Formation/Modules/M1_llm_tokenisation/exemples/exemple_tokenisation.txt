@@ -1,0 +1,19 @@
+Tokenisation de la phrase: "Bonjour, comment allez-vous ?"
+
+Tokens identifiés:
+- "Bonjour" -> ID: 1234
+- "," -> ID: 42
+- " " -> ID: 5
+- "comment" -> ID: 5678
+- " " -> ID: 5
+- "allez" -> ID: 9012
+- "-" -> ID: 100
+- "vous" -> ID: 3456
+- " " -> ID: 5
+- "?" -> ID: 200
+
+Liste des IDs: [1234, 42, 5, 5678, 5, 9012, 100, 3456, 5, 200]
+
+Décodage: "Bonjour, comment allez-vous ?"
+✓ Round-trip réussi
+

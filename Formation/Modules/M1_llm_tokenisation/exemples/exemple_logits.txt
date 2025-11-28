@@ -1,0 +1,18 @@
+Exemple de traitement des logits:
+
+Logits bruts: [2.5, 1.2, -0.5, 0.8, 3.1]
+
+Probabilités (softmax):
+  Token 0: 0.0734 (7.34%)
+  Token 1: 0.0271 (2.71%)
+  Token 2: 0.0045 (0.45%)
+  Token 3: 0.0198 (1.98%)
+  Token 4: 0.8752 (87.52%) ← Maximum
+
+Sélection greedy: Token 4 (probabilité: 87.52%)
+
+Échantillonnage avec température:
+  T=0.5: Token 4 (plus déterministe)
+  T=1.0: Token 4 (normal)
+  T=2.0: Token 0 (plus diversifié)
+

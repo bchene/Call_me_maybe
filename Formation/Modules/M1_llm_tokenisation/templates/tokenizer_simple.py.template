@@ -1,0 +1,57 @@
+"""Template pour un tokenizer simple."""
+
+import json
+import numpy as np
+from typing import Dict, List
+from llm_sdk import Small_LLM_Model
+
+
+class SimpleTokenizer:
+    """Tokeniseur simple utilisant le vocabulaire fourni."""
+    
+    def __init__(self):
+        """Initialise le tokenizer avec le vocabulaire."""
+        model = Small_LLM_Model()
+        vocab_path = model.get_path_to_vocabulary_json()
+        
+        with open(vocab_path, 'r', encoding='utf-8') as f:
+            vocab_data = json.load(f)
+        
+        # [À COMPLÉTER] : Charger token_to_id et id_to_token
+        
+    def encode(self, text: str) -> np.ndarray:
+        """
+        Encode un texte en input_ids.
+        
+        Stratégie: longest match first.
+        """
+        tokens = []
+        i = 0
+        
+        while i < len(text):
+            # [À COMPLÉTER] : Chercher le plus long token possible
+            # Si trouvé, ajouter son ID et avancer
+            # Si non trouvé, gérer le token inconnu
+            pass
+        
+        return np.array(tokens, dtype=np.int32)
+    
+    def decode(self, token_ids: np.ndarray) -> str:
+        """Decode des input_ids en texte."""
+        # [À COMPLÉTER] : Convertir chaque ID en token et concaténer
+        pass
+
+
+if __name__ == '__main__':
+    tokenizer = SimpleTokenizer()
+    
+    # Test
+    text = "bonjour comment"
+    ids = tokenizer.encode(text)
+    decoded = tokenizer.decode(ids)
+    
+    print(f"Original: {text}")
+    print(f"IDs: {ids}")
+    print(f"Decoded: {decoded}")
+    print(f"Match: {text == decoded}")
+

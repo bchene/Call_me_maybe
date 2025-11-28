@@ -2,11 +2,8 @@
 .DS_Store
 Thumbs.db
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
+# Cursor Specs
+.CursorSpecs/
 
 # Fichiers de configuration
 .vscode/

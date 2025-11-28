@@ -1,0 +1,7 @@
+2024-01-15 10:30:15 - INFO - Début du traitement
+2024-01-15 10:30:15 - DEBUG - Token sélectionné: 42, probabilité: 0.85
+2024-01-15 10:30:15 - INFO - Génération en cours...
+2024-01-15 10:30:16 - WARNING - Token inconnu détecté, utilisation de UNK
+2024-01-15 10:30:16 - INFO - Génération terminée en 1.23s
+2024-01-15 10:30:16 - ERROR - Erreur de validation: Argument 'b' manquant
+

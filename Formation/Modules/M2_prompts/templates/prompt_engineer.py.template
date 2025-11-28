@@ -1,0 +1,42 @@
+"""Template pour PromptEngineer."""
+
+import json
+from typing import Dict, List
+
+
+class PromptEngineer:
+    """Génère des prompts optimisés pour le function calling."""
+    
+    def __init__(self, function_definitions: Dict):
+        """Initialise avec les définitions de fonctions."""
+        self.function_definitions = function_definitions
+        self.examples = self._select_examples()
+    
+    def _select_examples(self) -> List[Dict]:
+        """Sélectionne des exemples représentatifs."""
+        # TODO: Sélectionner 2-3 exemples variés
+        # - Un exemple math
+        # - Un exemple string
+        # - Un exemple date (si disponible)
+        return []
+    
+    def build_prompt(self, question: str) -> str:
+        """Construit un prompt pour une question."""
+        # TODO: Construire le prompt avec:
+        # 1. Rôle de l'assistant
+        # 2. Format attendu (JSON)
+        # 3. Exemples few-shot
+        # 4. Question cible
+        # 5. Instruction finale
+        return ""
+
+
+if __name__ == '__main__':
+    # Test
+    with open('Dev/input/function_definitions.json', 'r') as f:
+        functions = json.load(f)
+    
+    engineer = PromptEngineer(functions)
+    prompt = engineer.build_prompt("Quelle est la somme de 2 et 3 ?")
+    print(prompt)
+

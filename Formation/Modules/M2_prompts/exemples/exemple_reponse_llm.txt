@@ -1,0 +1,12 @@
+Exemple de réponse LLM (bonne):
+{"fn_name": "fn_add_numbers", "args": {"a": 2.0, "b": 3.0}}
+
+Exemple de réponse LLM (avec texte supplémentaire):
+Voici la réponse : {"fn_name": "fn_add_numbers", "args": {"a": 2.0, "b": 3.0}}
+
+Exemple de réponse LLM (JSON invalide):
+{"fn_name": "fn_add_numbers", "args": {"a": 2.0, "b": 3.0  // Virgule manquante
+
+Exemple de réponse LLM (fn_name incorrect):
+{"fn_name": "add", "args": {"a": 2.0, "b": 3.0}}
+

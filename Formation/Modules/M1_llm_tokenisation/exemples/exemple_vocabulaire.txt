@@ -1,0 +1,36 @@
+==================================================
+Analyse du vocabulaire
+==================================================
+
+Clés disponibles: ['token_to_id', 'id_to_token']
+
+Nombre de tokens: 151936
+
+20 premiers tokens:
+   1. <|endoftext|>        -> 0
+   2. <|im_start|>         -> 1
+   3. <|im_end|>           -> 2
+   4. <|endofprompt|>      -> 3
+   5. <|endofcode|>        -> 4
+   6. <|endofthinking|>    -> 5
+   7. <|endofanswer|>      -> 6
+   8. <|endofinstruction|> -> 7
+   9. <|endofsystem|>      -> 8
+  10. <|endofuser|>        -> 9
+  11. <|endofassistant|>   -> 10
+  12. <|endofcontext|>     -> 11
+  13. <|endofinput|>       -> 12
+  14. <|endofoutput|>      -> 13
+  15. <|endofresponse|>    -> 14
+  16. <|endofmessage|>     -> 15
+  17. <|endofconversation|> -> 16
+  18. <|endofdialog|>      -> 17
+  19. <|endofsession|>     -> 18
+  20. <|endoftext|>        -> 19
+
+Tokens spéciaux trouvés:
+  <|endoftext|>: 0
+  <|im_start|>: 1
+  <|im_end|>: 2
+  <|endofprompt|>: 3
+

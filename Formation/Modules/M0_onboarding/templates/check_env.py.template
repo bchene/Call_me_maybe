@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+"""Script de vérification de l'environnement de développement."""
+
+import sys
+import platform
+from pathlib import Path
+
+
+def check_python_version():
+    """Vérifie que Python 3.11+ est utilisé."""
+    version = sys.version_info
+    print(f"✓ Python {version.major}.{version.minor}.{version.micro}")
+    
+    if version.major < 3 or (version.major == 3 and version.minor < 11):
+        print("✗ Python 3.11+ requis")
+        return False
+    print("✓ Version Python OK")
+    return True
+
+
+def check_packages():
+    """Vérifie que les packages requis sont installés."""
+    required = ['numpy', 'pydantic']
+    missing = []
+    
+    for package in required:
+        try:
+            __import__(package)
+            print(f"✓ {package} installé")
+        except ImportError:
+            print(f"✗ {package} manquant")
+            missing.append(package)
+    
+    return len(missing) == 0
+
+
+def check_project_structure():
+    """Vérifie la structure du projet."""
+    required_dirs = ['Doc', 'Formation', 'Dev']
+    
+    base = Path(__file__).parent.parent
+    missing = []
+    
+    for dir_name in required_dirs:
+        dir_path = base / dir_name
+        if dir_path.exists():
+            print(f"✓ {dir_name}/ existe")
+        else:
+            print(f"✗ {dir_name}/ manquant")
+            missing.append(dir_name)
+    
+    return len(missing) == 0
+
+
+def check_makefile():
+    """Vérifie que le Makefile existe et contient les cibles essentielles."""
+    base = Path(__file__).parent.parent
+    makefile = base / 'Dev' / 'Makefile'
+    
+    if not makefile.exists():
+        print("✗ Makefile manquant")
+        return False
+    
+    print("✓ Makefile existe")
+    
+    content = makefile.read_text()
+    targets = ['install', 'run', 'lint', 'clean']
+    missing = []
+    
+    for target in targets:
+        if f'\n{target}:' in content or f'\n\t{target}:' in content:
+            print(f"✓ Cible 'make {target}' trouvée")
+        else:
+            print(f"✗ Cible 'make {target}' manquante")
+            missing.append(target)
+    
+    return len(missing) == 0
+
+
+def main():
+    """Fonction principale."""
+    print("=" * 50)
+    print("Vérification de l'environnement")
+    print("=" * 50)
+    print()
+    
+    checks = [
+        ("Version Python", check_python_version),
+        ("Packages", check_packages),
+        ("Structure projet", check_project_structure),
+        ("Makefile", check_makefile),
+    ]
+    
+    results = []
+    for name, check_func in checks:
+        print(f"\n[{name}]")
+        results.append(check_func())
+    
+    print("\n" + "=" * 50)
+    if all(results):
+        print("✓ Tous les checks sont passés")
+        sys.exit(0)
+    else:
+        print("✗ Certains checks ont échoué")
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()
+

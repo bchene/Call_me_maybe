@@ -1,0 +1,63 @@
+"""Template pour les utilitaires de logits."""
+
+import numpy as np
+
+
+def softmax(logits: np.ndarray) -> np.ndarray:
+    """
+    Convertit les logits en probabilités via softmax.
+    
+    Args:
+        logits: Array de logits (non normalisés)
+    
+    Returns:
+        Array de probabilités (somme = 1.0)
+    """
+    # TODO: Implémenter softmax avec stabilité numérique
+    # Astuce: soustraire le max avant exp
+    pass
+
+
+def greedy_select(logits: np.ndarray) -> int:
+    """
+    Sélectionne le token avec le logit maximum (greedy).
+    
+    Args:
+        logits: Array de logits
+    
+    Returns:
+        ID du token sélectionné
+    """
+    # TODO: Retourner l'index du maximum
+    pass
+
+
+def sample_with_temperature(
+    logits: np.ndarray,
+    temperature: float = 1.0
+) -> int:
+    """
+    Échantillonne un token selon les probabilités (avec température).
+    
+    Args:
+        logits: Array de logits
+        temperature: Contrôle la diversité (1.0 = normal, <1.0 = plus déterministe)
+    
+    Returns:
+        ID du token échantillonné
+    """
+    # TODO: Appliquer la température
+    # TODO: Calculer les probabilités avec softmax
+    # TODO: Échantillonner selon ces probabilités
+    pass
+
+
+if __name__ == '__main__':
+    # Test
+    logits = np.array([2.5, 1.2, -0.5, 0.8, 3.1])
+    
+    print("Logits:", logits)
+    print("Probabilités:", softmax(logits))
+    print("Greedy selection:", greedy_select(logits))
+    print("Sampling (T=1.0):", sample_with_temperature(logits, temperature=1.0))
+

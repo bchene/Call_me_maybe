@@ -1,0 +1,44 @@
+"""Template pour la boucle de génération."""
+
+import numpy as np
+from src.tokenizer import Tokenizer
+from src.utils import greedy_select
+from src.stop_criteria import should_stop
+from llm_sdk import Small_LLM_Model
+
+
+def generate_greedy(
+    prompt: str,
+    tokenizer: Tokenizer,
+    model: Small_LLM_Model,
+    max_length: int = 100
+) -> str:
+    """Génère du texte avec sélection greedy."""
+    # TODO: Encoder le prompt
+    # input_ids = tokenizer.encode(prompt)
+    
+    # TODO: Boucle de génération
+    # for _ in range(max_length):
+    #     - Obtenir les logits
+    #     - Sélectionner le prochain token (greedy)
+    #     - Ajouter à la séquence
+    #     - Vérifier critères d'arrêt
+    #     - Si arrêt, break
+    
+    # TODO: Décoder le résultat final
+    # return tokenizer.decode(generated_ids)
+    return ""
+
+
+if __name__ == '__main__':
+    # Test
+    from src.vocabulary import Vocabulary
+    from llm_sdk import Small_LLM_Model
+    
+    model = Small_LLM_Model()
+    vocab = Vocabulary(model.get_path_to_vocabulary_json())
+    tokenizer = Tokenizer(vocab)
+    
+    result = generate_greedy("Bonjour", tokenizer, model, max_length=20)
+    print(f"Généré: {result}")
+

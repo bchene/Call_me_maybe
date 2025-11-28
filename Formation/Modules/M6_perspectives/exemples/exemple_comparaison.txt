@@ -1,0 +1,19 @@
+Comparaison Tokenisation:
+
+Approche Maison:
+- Script custom avec longest match
+- ~150 lignes de code
+- Contrôle total sur le processus
+- Support limité aux tokens du vocabulaire fourni
+
+Hugging Face Tokenizers:
+- Bibliothèque optimisée (BPE, WordPiece)
+- ~5 lignes de code
+- Support multi-langue
+- Gestion automatique des tokens spéciaux
+- Performance optimisée
+
+Recommandation:
+- Apprentissage: Approche maison
+- Production: Hugging Face Tokenizers
+

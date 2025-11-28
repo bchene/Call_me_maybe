@@ -1,0 +1,20 @@
+Validation réussie:
+
+Input JSON:
+{
+    "prompt": "Quelle est la somme de 2 et 3 ?",
+    "fn_name": "fn_add_numbers",
+    "args": {
+        "a": 2.0,
+        "b": 3.0
+    }
+}
+
+Validation:
+✓ fn_name existe dans les définitions
+✓ Argument 'a' présent et de type float
+✓ Argument 'b' présent et de type float
+✓ Aucun argument supplémentaire
+
+Résultat: VALIDE
+

@@ -1,0 +1,69 @@
+.PHONY: install run debug lint clean doc check-env help
+
+# Installation des dépendances
+install:
+	@echo "Installation des dépendances..."
+	uv sync
+
+# Exécution du programme principal
+run:
+	@echo "Exécution du programme..."
+	uv run python -m src
+
+# Mode debug avec pdb
+debug:
+	@echo "Lancement en mode debug..."
+	uv run python -m pdb -m src
+
+# Vérification du code avec flake8
+lint:
+	@echo "Vérification du code..."
+	@if [ -d "src" ]; then \
+		uv run flake8 src --max-line-length=100; \
+	else \
+		echo "Aucun code à vérifier (src/ n'existe pas encore)"; \
+	fi
+
+# Nettoyage des fichiers temporaires
+clean:
+	@echo "Nettoyage..."
+	@find . -type d -name "__pycache__" -exec rm -r {} + 2>/dev/null || true
+	@find . -type f -name "*.pyc" -delete
+	@find . -type f -name "*.pyo" -delete
+	@find . -type d -name "*.egg-info" -exec rm -r {} + 2>/dev/null || true
+	@rm -rf .pytest_cache
+	@rm -rf .mypy_cache
+	@echo "Nettoyage terminé"
+
+# Ouverture de la documentation
+doc:
+	@echo "Ouverture de la documentation..."
+	@if command -v open > /dev/null; then \
+		open Doc/Sujet/Call_me_maybe_subject_fr.md; \
+	elif command -v xdg-open > /dev/null; then \
+		xdg-open Doc/Sujet/Call_me_maybe_subject_fr.md; \
+	else \
+		echo "Ouvrez manuellement: Doc/Sujet/Call_me_maybe_subject_fr.md"; \
+	fi
+
+# Vérification de l'environnement
+check-env:
+	@echo "Vérification de l'environnement..."
+	@if [ -f "scripts/check_env.py" ]; then \
+		uv run python scripts/check_env.py; \
+	else \
+		echo "Script check_env.py non trouvé"; \
+	fi
+
+# Aide
+help:
+	@echo "Cibles disponibles:"
+	@echo "  make install    - Installer les dépendances"
+	@echo "  make run        - Exécuter le programme"
+	@echo "  make debug      - Lancer en mode debug"
+	@echo "  make lint       - Vérifier le code avec flake8"
+	@echo "  make clean      - Nettoyer les fichiers temporaires"
+	@echo "  make doc        - Ouvrir la documentation"
+	@echo "  make check-env  - Vérifier l'environnement"
+	@echo "  make help       - Afficher cette aide"
+

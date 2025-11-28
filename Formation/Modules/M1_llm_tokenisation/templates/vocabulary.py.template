@@ -1,0 +1,48 @@
+"""Template pour la classe Vocabulary."""
+
+import json
+from pathlib import Path
+from typing import Dict, Optional
+from llm_sdk import Small_LLM_Model
+
+
+class Vocabulary:
+    """Gère le vocabulaire token <-> ID."""
+    
+    def __init__(self, vocab_path: str):
+        """Charge le vocabulaire depuis un fichier JSON."""
+        # TODO: Charger le vocabulaire
+        # TODO: Construire token_to_id et id_to_token
+        pass
+    
+    def encode_token(self, token: str) -> int:
+        """Convertit un token en ID."""
+        # TODO: Retourner l'ID du token
+        pass
+    
+    def decode_id(self, token_id: int) -> str:
+        """Convertit un ID en token."""
+        # TODO: Retourner le token correspondant
+        pass
+    
+    def get_unk_token_id(self) -> Optional[int]:
+        """Retourne l'ID du token UNK si disponible."""
+        # TODO: Chercher les variantes de UNK
+        pass
+    
+    def get_eos_token_id(self) -> Optional[int]:
+        """Retourne l'ID du token EOS si disponible."""
+        # TODO: Chercher les variantes de EOS
+        pass
+
+
+if __name__ == '__main__':
+    # Test
+    model = Small_LLM_Model()
+    vocab = Vocabulary(model.get_path_to_vocabulary_json())
+    
+    # Test encode/decode
+    token_id = vocab.encode_token("hello")
+    token = vocab.decode_id(token_id)
+    print(f"Token 'hello' -> ID {token_id} -> Token '{token}'")
+

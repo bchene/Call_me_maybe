@@ -1,0 +1,58 @@
+"""Template pour la gestion d'erreurs."""
+
+import logging
+from functools import wraps
+from typing import Callable, Any
+
+logger = logging.getLogger(__name__)
+
+
+def log_exceptions(func: Callable) -> Callable:
+    """Décorateur qui loggue les exceptions."""
+    @wraps(func)
+    def wrapper(*args, **kwargs) -> Any:
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            logger.error(
+                f"Erreur dans {func.__name__}: {e}",
+                exc_info=True
+            )
+            raise
+    return wrapper
+
+
+def handle_errors(operation: str):
+    """Contexte manager pour gérer les erreurs."""
+    # TODO: Implémenter un context manager
+    # with handle_errors("parsing"):
+    #     result = parse_json(text)
+    pass
+
+
+@log_exceptions
+def safe_parse_json(text: str) -> dict:
+    """Parse un JSON de manière sécurisée."""
+    import json
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError as e:
+        logger.warning(f"JSON invalide: {e}")
+        return {}
+    except Exception as e:
+        logger.error(f"Erreur inattendue: {e}")
+        raise
+
+
+if __name__ == '__main__':
+    # Test
+    logging.basicConfig(level=logging.INFO)
+    
+    # Test avec JSON valide
+    result = safe_parse_json('{"test": 42}')
+    print(f"Résultat: {result}")
+    
+    # Test avec JSON invalide
+    result = safe_parse_json('{"test": 42')  # Incomplet
+    print(f"Résultat: {result}")
+

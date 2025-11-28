@@ -1,0 +1,50 @@
+"""Template pour le pipeline complet."""
+
+from typing import Optional
+from src.prompt_engineering import PromptEngineer
+from src.tokenizer import Tokenizer
+from src.vocabulary import Vocabulary
+from src.llm_interaction import LLMGenerator
+from src.parser import FlexibleParser
+from src.validation import FunctionCallValidator, FunctionCallResult
+from llm_sdk import Small_LLM_Model
+
+
+class FunctionCallingPipeline:
+    """Pipeline complet pour le function calling."""
+    
+    def __init__(
+        self,
+        function_definitions_path: str,
+        vocab_path: str,
+        model: Small_LLM_Model
+    ):
+        """Initialise le pipeline."""
+        # TODO: Charger les définitions de fonctions
+        # TODO: Initialiser tous les composants
+        pass
+    
+    def run(self, question: str) -> Optional[FunctionCallResult]:
+        """Exécute le pipeline complet."""
+        # TODO: 1. Construire le prompt
+        # TODO: 2. Générer avec le LLM
+        # TODO: 3. Parser le JSON
+        # TODO: 4. Valider
+        # TODO: 5. Retourner le résultat
+        return None
+
+
+if __name__ == '__main__':
+    # Test
+    model = Small_LLM_Model()
+    pipeline = FunctionCallingPipeline(
+        function_definitions_path='Dev/input/function_definitions.json',
+        vocab_path=model.get_path_to_vocabulary_json(),
+        model=model
+    )
+    
+    result = pipeline.run("Quelle est la somme de 2 et 3 ?")
+    if result:
+        print(f"Fonction: {result.fn_name}")
+        print(f"Arguments: {result.args}")
+

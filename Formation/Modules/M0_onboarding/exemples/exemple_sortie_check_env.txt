@@ -1,0 +1,27 @@
+==================================================
+Vérification de l'environnement
+==================================================
+
+[Version Python]
+✓ Python 3.11.8
+✓ Version Python OK
+
+[Packages]
+✓ numpy installé
+✓ pydantic installé
+
+[Structure projet]
+✓ Doc/ existe
+✓ Formation/ existe
+✓ Dev/ existe
+
+[Makefile]
+✓ Makefile existe
+✓ Cible 'make install' trouvée
+✓ Cible 'make run' trouvée
+✓ Cible 'make lint' trouvée
+✓ Cible 'make clean' trouvée
+
+==================================================
+✓ Tous les checks sont passés
+

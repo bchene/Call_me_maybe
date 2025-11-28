@@ -1,0 +1,33 @@
+"""Template pour les tests unitaires."""
+
+import pytest
+from src.module_name import ClassName
+
+
+@pytest.fixture
+def fixture_name():
+    """Fixture pour les tests."""
+    # TODO: Créer la fixture
+    return None
+
+
+def test_functionality_name(fixture_name):
+    """Test de la fonctionnalité."""
+    # TODO: Écrire le test
+    # Arrange
+    # Act
+    # Assert
+    assert True
+
+
+def test_error_case():
+    """Test d'un cas d'erreur."""
+    # TODO: Tester qu'une erreur est levée correctement
+    with pytest.raises(ValueError):
+        # Code qui doit lever ValueError
+        pass
+
+
+if __name__ == '__main__':
+    pytest.main([__file__, '-v'])
+

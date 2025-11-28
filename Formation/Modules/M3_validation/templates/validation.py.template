@@ -1,0 +1,58 @@
+"""Template pour la validation avec Pydantic."""
+
+from pydantic import BaseModel, Field, ValidationError
+from typing import Dict, Any, Optional, Tuple
+
+
+class FunctionDefinition(BaseModel):
+    """Définition d'une fonction."""
+    name: str
+    args: Dict[str, str] = Field(..., description="Arguments: nom -> type")
+    return_type: str = Field(default="unknown", description="Type de retour")
+
+
+class FunctionCallResult(BaseModel):
+    """Résultat d'un appel de fonction."""
+    prompt: str = Field(..., description="Question originale")
+    fn_name: str = Field(..., description="Nom de la fonction")
+    args: Dict[str, Any] = Field(..., description="Arguments")
+    
+    # TODO: Ajouter des validators
+    # @field_validator('fn_name')
+    # @classmethod
+    # def validate_fn_name(cls, v: str) -> str:
+    #     ...
+
+
+class FunctionCallValidator:
+    """Valide les appels de fonctions."""
+    
+    def __init__(self, function_definitions: Dict[str, FunctionDefinition]):
+        """Initialise avec les définitions de fonctions."""
+        self.function_definitions = function_definitions
+    
+    def validate(self, call_result: FunctionCallResult) -> Tuple[bool, Optional[str]]:
+        """
+        Valide un appel de fonction.
+        
+        Returns:
+            (is_valid, error_message)
+        """
+        # TODO: Vérifier que fn_name existe
+        # TODO: Vérifier que tous les arguments requis sont présents
+        # TODO: Vérifier les types des arguments
+        return True, None
+
+
+if __name__ == '__main__':
+    # Test
+    from src.validation import FunctionCallResult, FunctionCallValidator
+    
+    result = FunctionCallResult(
+        prompt="Test",
+        fn_name="fn_add_numbers",
+        args={"a": 2.0, "b": 3.0}
+    )
+    
+    print(f"Résultat créé: {result}")
+

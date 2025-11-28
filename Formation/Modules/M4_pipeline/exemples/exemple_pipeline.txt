@@ -1,0 +1,33 @@
+Exécution du pipeline:
+
+Question: "Quelle est la somme de 2 et 3 ?"
+
+Étape 1 - Prompt Engineering:
+Tu es un assistant qui convertit des questions en appels de fonctions...
+[Prompt complet généré]
+
+Étape 2 - Tokenisation:
+Prompt tokenisé en 45 tokens
+Input IDs: [1234, 5678, ...]
+
+Étape 3 - Génération:
+Step 0: token_id=42, prob=0.15
+Step 1: token_id=123, prob=0.23
+...
+Step 15: token_id=125, prob=0.89
+Arrêt à l'étape 15 (JSON complet détecté)
+
+Étape 4 - Parsing:
+JSON extrait: {"fn_name": "fn_add_numbers", "args": {"a": 2.0, "b": 3.0}}
+
+Étape 5 - Validation:
+✓ fn_name valide
+✓ Arguments valides
+✓ Types corrects
+
+Résultat final:
+{
+    "fn_name": "fn_add_numbers",
+    "args": {"a": 2.0, "b": 3.0}
+}
+
