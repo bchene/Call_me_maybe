@@ -95,6 +95,19 @@ Le document doit contenir :
    - Les ressources seront organisées par thème, langue (français/anglais) et niveau
    - Chaque lien inclura : titre, URL, description, niveau recommandé, langue
 
+9. **Prompt CONTINUE** : Section obligatoire pour reprendre le projet dans un nouveau chat
+   - Cette section doit être ajoutée à la fin du document `general.md`
+   - Elle doit contenir un prompt complet permettant de reprendre le projet si le contexte du chat est plein
+   - Le prompt doit inclure :
+     - Contexte du projet (objectif, contraintes techniques)
+     - État d'avancement actuel (phases complétées/en cours)
+     - Structure du projet (dossiers et fichiers importants)
+     - Fichiers importants à consulter pour comprendre le contexte
+     - Questions pour continuer (identifier l'état exact, fichiers créés, prochaines étapes)
+     - Instructions pour l'assistant (lire general.md, identifier l'état, proposer la suite)
+   - Format : Section markdown avec titre "Prompt CONTINUE - Reprendre le Projet dans un Nouveau Chat"
+   - Le prompt doit être copiable tel quel dans un nouveau chat
+
 ### Contraintes du Document
 
 - **Pas de code** : Le document est purement conceptuel et organisationnel
@@ -117,6 +130,7 @@ Pour chaque phase, spécifier les fichiers associés avec le format :
 3. Adapter les phases selon la nature spécifique du projet
 4. Utiliser ce document comme référence principale pour toutes les interactions futures
 5. Mettre à jour le document au fur et à mesure de l'avancement
+6. **OBLIGATOIRE** : Inclure dès la création initiale une section "Prompt CONTINUE" à la fin du document, et la mettre à jour régulièrement avec l'état d'avancement actuel du projet
 
 ### Notes Importantes
 
@@ -126,6 +140,7 @@ Pour chaque phase, spécifier les fichiers associés avec le format :
 - L'assistant doit se référer à ce document avant chaque nouvelle tâche
 - Lors des phases de perspective/approfondissement, inclure une réflexion sur les bibliothèques non permises et leur valeur ajoutée hors contraintes
 - Les modules de formation doivent rester synchronisés (cours/exercices/corrigés), avec ressources vidéo et textuelles référencées
+- **OBLIGATOIRE** : Le document `general.md` doit toujours contenir une section "Prompt CONTINUE" à la fin pour permettre la reprise du projet dans un nouveau chat. Cette section doit être créée dès la création initiale du document et mise à jour régulièrement avec l'état d'avancement actuel
 
 ---
 
